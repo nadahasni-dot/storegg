@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Detail() {
   return (
     <section className="detail pt-lg-60 pb-50">

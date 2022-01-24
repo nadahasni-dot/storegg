@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function SignUpForm() {
   return (
     <>
@@ -40,21 +42,23 @@ export default function SignUpForm() {
         />
       </div>
       <div className="button-group d-flex flex-column mx-auto pt-50">
-        <a
-          className="btn btn-sign-up fw-medium text-lg text-white rounded-pill mb-16"
-          href="sign-up-photo"
-          role="button"
-        >
-          Continue
-        </a>
-        <a
-          className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill"
-          href="sign-in"
-          role="button"
-        >
-          Sign
-          In
-        </a>
+        <Link href="sign-up-photo">
+          <a
+            className="btn btn-sign-up fw-medium text-lg text-white rounded-pill mb-16"
+            role="button"
+          >
+            Continue
+          </a>
+        </Link>
+        <Link href="sign-in">
+          <a
+            className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill"
+            role="button"
+          >
+            Sign
+            In
+          </a>
+        </Link>
       </div>
     </>
   );

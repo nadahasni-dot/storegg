@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState, useCallback } from 'react';
 import GameItem from '../../molecules/GameItem';
+import { getFeaturedGame } from '../../../services/player';
 
 export default function FeaturedGame() {
   const [gameList, setGameList] = useState([]);
 
-  useEffect(async () => {
-    const response = await axios.get('https://nada-bwa-store-gg.herokuapp.com/api/v1/players/landingpage');
-    console.log('data: ', response.data);
-    setGameList(response.data.data);
+  const getFeaturedGameList = useCallback(async () => {
+    const data = await getFeaturedGame();
+    setGameList(data);
+  }, [getFeaturedGame]);
+
+  useEffect(() => {
+    getFeaturedGameList();
   }, []);
 
   return (

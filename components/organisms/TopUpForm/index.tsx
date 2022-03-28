@@ -2,7 +2,33 @@ import Link from 'next/link';
 import NominalItem from './NominalItem';
 import PaymentItem from './PaymentItem';
 
-export default function TopUpForm() {
+interface NominalTypes {
+  _id: string;
+  name: string;
+  price: number;
+  coinName: string;
+  coinQuantity: number;
+}
+
+interface BankTypes {
+  _id: string;
+  bankName: string;
+}
+
+interface PaymentTypes {
+  _id: string;
+  type: string;
+  banks: Array<BankTypes>;
+}
+
+interface TopUpFormProps {
+  nominals: Array<NominalTypes>;
+  payments: Array<PaymentTypes>;
+}
+
+export default function TopUpForm(props: TopUpFormProps) {
+  const { nominals, payments } = props;
+
   return (
     <form action="./checkout.html" method="POST">
       <div className="pt-md-50 pt-30">
@@ -24,7 +50,15 @@ export default function TopUpForm() {
       <div className="pt-md-50 pb-md-50 pt-30 pb-20">
         <p className="text-lg fw-medium color-palette-1 mb-md-10 mb-0">Nominal Top Up</p>
         <div className="row justify-content-between">
-          <NominalItem _id="123231" coinQuantity={20} coinName="GOLD" price={12000} />
+          {nominals.map((nominal) => (
+            <NominalItem
+              key={nominal._id}
+              _id={nominal._id}
+              coinQuantity={nominal.coinQuantity}
+              coinName={nominal.coinName}
+              price={nominal.price}
+            />
+          ))}
 
           <div className="col-lg-4 col-sm-6" />
         </div>
@@ -33,8 +67,14 @@ export default function TopUpForm() {
         <p className="text-lg fw-medium color-palette-1 mb-md-10 mb-0">Payment Method</p>
         <fieldset id="paymentMethod">
           <div className="row justify-content-between">
-            <PaymentItem bankId="adsa" type="TRANSFER" name="BCA" />
-            <PaymentItem bankId="wqe" type="TRANSFER" name="BCA" />
+            {payments.map((payment) => payment.banks.map((bank) => (
+              <PaymentItem
+                key={bank._id}
+                bankId={bank._id}
+                type={payment.type}
+                name={bank.bankName}
+              />
+            )))}
             <div className="col-lg-4 col-sm-6" />
           </div>
         </fieldset>

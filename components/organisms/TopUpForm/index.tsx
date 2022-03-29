@@ -1,29 +1,11 @@
 import Link from 'next/link';
+import { NominalTypes, PaymentTypes } from '../../../services/data-types';
 import NominalItem from './NominalItem';
 import PaymentItem from './PaymentItem';
 
-interface NominalTypes {
-  _id: string;
-  name: string;
-  price: number;
-  coinName: string;
-  coinQuantity: number;
-}
-
-interface BankTypes {
-  _id: string;
-  bankName: string;
-}
-
-interface PaymentTypes {
-  _id: string;
-  type: string;
-  banks: Array<BankTypes>;
-}
-
 interface TopUpFormProps {
-  nominals: Array<NominalTypes>;
-  payments: Array<PaymentTypes>;
+  nominals: NominalTypes[];
+  payments: PaymentTypes[];
 }
 
 export default function TopUpForm(props: TopUpFormProps) {

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function SignUpForm() {
   const [name, setName] = useState('');
@@ -15,6 +17,21 @@ export default function SignUpForm() {
   };
 
   const onSubmit = () => {
+    if (name === '') {
+      toast.error('Form nama harus diisi');
+      return;
+    }
+
+    if (email === '') {
+      toast.error('Form email harus diisi');
+      return;
+    }
+
+    if (password === '' || password.length < 6) {
+      toast.error('Password minimal terdiri dari 6 karakter');
+      return;
+    }
+
     const userForm = {
       name,
       email,
@@ -83,6 +100,7 @@ export default function SignUpForm() {
           </a>
         </Link>
       </div>
+      <ToastContainer />
     </>
   );
 }

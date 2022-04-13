@@ -21,7 +21,7 @@ export default function SignUpPhoto() {
 
   const getGameCategoriesAPI = useCallback(async () => {
     const data = await getGameCategories();
-    setCategories(data);
+    setCategories(data.data);
   }, []);
 
   useEffect(() => {
@@ -29,13 +29,13 @@ export default function SignUpPhoto() {
   }, []);
 
   useEffect(async () => {
-    const getLocalForm = await localStorage.getItem('user-form') ?? '{}';
-    setLocalForm(JSON.parse(getLocalForm));
+    const getLocalForm = await localStorage.getItem('user-form');
+    setLocalForm(JSON.parse(getLocalForm!));
   }, []);
 
   const onSubmit = async () => {
-    const getLocalForm = await localStorage.getItem('user-form') ?? '{}';
-    const form = JSON.parse(getLocalForm);
+    const getLocalForm = await localStorage.getItem('user-form');
+    const form = JSON.parse(getLocalForm!);
     const data = new FormData();
 
     data.append('image', image);
@@ -49,7 +49,7 @@ export default function SignUpPhoto() {
     data.append('favorite', favorite);
 
     const result = await setSignUp(data);
-    if (result?.error === 1) {
+    if (result.error) {
       toast.error(result.message);
     } else {
       toast.success('Sign Up Success');

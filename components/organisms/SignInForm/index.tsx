@@ -24,7 +24,7 @@ export default function SignInForm() {
 
     const response = await setLogin(data);
 
-    if (!response.status) {
+    if (response.error) {
       toast.error(response.message);
     } else {
       toast.success('Sign in berhasil');

@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 export default function SignUpForm() {
   const [name, setName] = useState('');
@@ -100,7 +99,6 @@ export default function SignUpForm() {
           </a>
         </Link>
       </div>
-      <ToastContainer />
     </>
   );
 }

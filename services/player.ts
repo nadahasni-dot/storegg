@@ -1,5 +1,5 @@
-import axios from 'axios';
 import callAPI from '../config/api';
+import { CheckoutTypes } from './data-types';
 
 const ROOT_API = process.env.NEXT_PUBLIC_API;
 const API_VERSION = 'api/v1';
@@ -31,5 +31,16 @@ export async function getGameCategories() {
     url: `${ROOT_API}/${API_VERSION}/${URL}`,
     method: 'GET',
     data: {},
+  });
+}
+
+export async function setCheckout(data: CheckoutTypes) {
+  const URL = 'players/checkout';
+
+  return callAPI({
+    url: `${ROOT_API}/${API_VERSION}/${URL}`,
+    method: 'POST',
+    data,
+    token: true,
   });
 }

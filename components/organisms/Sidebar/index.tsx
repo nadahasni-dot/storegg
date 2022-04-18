@@ -8,6 +8,7 @@ interface SidebarProps {
 
 export default function Sidebar(props: SidebarProps) {
   const { activeMenu } = props;
+
   return (
     <section className="sidebar">
       <div className="content pt-50 pb-30 ps-30">

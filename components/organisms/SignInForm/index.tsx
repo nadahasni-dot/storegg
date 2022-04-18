@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { setLogin } from '../../../services/auth';
 

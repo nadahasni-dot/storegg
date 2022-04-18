@@ -12,7 +12,7 @@ export interface GameItemTypes {
     category: CategoryTypes;
 }
 
-interface BankTypes {
+export interface BankTypes {
     _id: string;
     name: string;
     bankName: string;

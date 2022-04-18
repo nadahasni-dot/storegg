@@ -37,7 +37,15 @@ export default function Checkout(props: CheckoutProps) {
   );
 }
 
-export async function getServerSideProps({ req }) {
+interface GetServerSideProps {
+  req: {
+    cookies: {
+      token: string,
+    }
+  }
+}
+
+export async function getServerSideProps({ req }: GetServerSideProps) {
   const { token } = req.cookies;
   if (!token) {
     return {
@@ -50,7 +58,7 @@ export async function getServerSideProps({ req }) {
 
   const jwtToken = Buffer.from(token, 'base64').toString('ascii');
 
-  const payload:JwtPayloadTypes = jwtDecode(jwtToken);
+  const payload: JwtPayloadTypes = jwtDecode(jwtToken);
   const userData: UserTypes = payload.player;
   const IMG = process.env.NEXT_PUBLIC_IMG;
   userData.avatar = `${IMG}/${userData.avatar}`;

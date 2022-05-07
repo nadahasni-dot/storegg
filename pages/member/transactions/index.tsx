@@ -31,16 +31,7 @@ export async function getServerSideProps({ req }: GetServerSideProps) {
     };
   }
 
-  const jwtToken = Buffer.from(token, 'base64').toString('ascii');
-
-  const payload: JwtPayloadTypes = jwtDecode(jwtToken);
-  const userData: UserTypes = payload.player;
-  const IMG = process.env.NEXT_PUBLIC_IMG;
-  userData.avatar = `${IMG}/${userData.avatar}`;
-
   return {
-    props: {
-      user: userData,
-    },
+    props: {},
   };
 }

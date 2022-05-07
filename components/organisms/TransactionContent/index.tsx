@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import NumberFormat from 'react-number-format';
 import { toast } from 'react-toastify';
+import { HistoryTransactionTypes } from '../../../services/data-types';
 import { getMemberTransactions } from '../../../services/member';
 import ButtonTab from './ButtonTab';
 import TableRow from './TableRow';
@@ -91,7 +92,7 @@ export default function TransactionContent() {
               </thead>
               <tbody id="list_status_item">
                 {
-                  transactions.map((transaction) => (
+                  transactions.map((transaction: HistoryTransactionTypes) => (
                     <TableRow
                       image={`${IMG}/${transaction.historyVoucherTopup.thumbnail}`}
                       title={transaction.historyVoucherTopup.gameName}
@@ -99,6 +100,7 @@ export default function TransactionContent() {
                       item={`${transaction.historyVoucherTopup.coinQuantity} ${transaction.historyVoucherTopup.coinName}`}
                       price={transaction.value}
                       status={transaction.status}
+                      id={transaction._id}
                     />
                   ))
                 }

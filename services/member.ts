@@ -32,3 +32,25 @@ export async function getMemberOverview() {
     token: true,
   });
 }
+
+export async function getTransactionDetail(id: string, token: string) {
+  const URL = `players/history/${id}/detail`;
+
+  return callAPI({
+    url: `${ROOT_API}/${API_VERSION}/${URL}`,
+    method: 'GET',
+    data: {},
+    serverToken: token,
+  });
+}
+
+export async function updateProfile(data) {
+  const URL = 'players/profile';
+
+  return callAPI({
+    url: `${ROOT_API}/${API_VERSION}/${URL}`,
+    method: 'PUT',
+    data,
+    token: true,
+  });
+}

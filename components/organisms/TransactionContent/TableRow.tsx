@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import cx from 'classnames';
+import NumberFormat from 'react-number-format';
 
 interface TableRowProps {
     image: string;
     title: string;
     category: string;
-    item: number;
+    item: string;
     price: number;
-    status: 'Pending' | 'Success' | 'Failed';
+    status: string;
 }
 
 export default function TableRow(props: TableRowProps) {
@@ -17,9 +18,9 @@ export default function TableRow(props: TableRowProps) {
   const statusClass = cx({
     'float-start': true,
     'icon-status': true,
-    pending: status === 'Pending',
-    success: status === 'Success',
-    failed: status === 'Failed',
+    pending: status.toLowerCase() === 'pending',
+    success: status.toLowerCase() === 'success',
+    failed: status.toLowerCase() === 'failed',
   });
 
   return (
@@ -27,7 +28,7 @@ export default function TableRow(props: TableRowProps) {
       <th scope="row">
         <img
           className="float-start me-3 mb-lg-0 mb-3"
-          src={`/img/${image}.png`}
+          src={image}
           width="80"
           height="60"
           alt=""
@@ -42,12 +43,18 @@ export default function TableRow(props: TableRowProps) {
       <td>
         <p className="fw-medium color-palette-1 m-0">
           {item}
-          {' '}
-          Gold
         </p>
       </td>
       <td>
-        <p className="fw-medium color-palette-1 m-0">{price}</p>
+        <p className="fw-medium color-palette-1 m-0">
+          <NumberFormat
+            value={price}
+            prefix="Rp. "
+            displayType="text"
+            decimalSeparator=","
+            thousandSeparator="."
+          />
+        </p>
       </td>
       <td>
         <div>

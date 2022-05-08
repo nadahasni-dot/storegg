@@ -1,5 +1,25 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+# Store GG Website
+
+Website for topup game using backend api from [Store GG Backend Server](https://github.com/nadahasnim/bwa-storegg-server)
+
+
+
+
+
+## Features
+
+Build with:
+- Javascript
+- React.js (Next.js)
+
+
+## App Url
+
+[Open The App](https://nada-storegg.vercel.app/)
+
 ## Getting Started
 
 First, run the development server:

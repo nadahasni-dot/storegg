@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Auth from './Auth';
+// @ts-ignore
 import Menu from './Menu';
 import ToggleMenu from './ToggleMenu';
 

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Auth from './Auth';
-// @ts-ignore
-import Menu from './Menu';
+import NavMenu from './NavMenu';
 import ToggleMenu from './ToggleMenu';
 
 export default function Navbar() {
@@ -18,11 +17,11 @@ export default function Navbar() {
           <ToggleMenu />
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto text-lg gap-lg-0 gap-2">
-              <Menu title="Home" active />
-              <Menu title="Games" />
-              <Menu title="Rewards" />
-              <Menu title="Discover" />
-              <Menu title="Global Rank" />
+              <NavMenu title="Home" active />
+              <NavMenu title="Games" />
+              <NavMenu title="Rewards" />
+              <NavMenu title="Discover" />
+              <NavMenu title="Global Rank" />
               <Auth />
             </ul>
           </div>

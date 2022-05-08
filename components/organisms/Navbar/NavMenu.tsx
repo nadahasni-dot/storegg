@@ -7,7 +7,7 @@ interface MenuProps {
     active?: boolean;
 }
 
-export default function Menu(props: Partial<MenuProps>) {
+export default function NavMenu(props: Partial<MenuProps>) {
   const { title, active, href = '/' } = props;
   const classTitle = cx({
     'nav-link': true,

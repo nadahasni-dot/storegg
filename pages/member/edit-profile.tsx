@@ -1,24 +1,29 @@
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
-import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Input from '../../components/atoms/Input';
 import Sidebar from '../../components/organisms/Sidebar';
 import { JwtPayloadTypes, UserTypes } from '../../services/data-types';
 import { updateProfile } from '../../services/member';
 
+interface UserStateTypes {
+  email: string;
+  username: string;
+  avatar: any;
+}
+
 export default function EditProfile() {
   const router = useRouter();
 
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<UserStateTypes>({
     avatar: '',
     username: '',
     email: '',
   });
 
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState('/');
 
   useEffect(() => {
     const token = Cookies.get('token');
@@ -63,9 +68,9 @@ export default function EditProfile() {
                 <div className="photo d-flex">
                   <div className="image-upload">
                     <label htmlFor="avatar">
-                      {imagePreview ? (
+                      {imagePreview === '/' ? (
                         <img
-                          src={imagePreview}
+                          src={user.avatar}
                           width={90}
                           height={90}
                           alt="icon upload"
@@ -73,7 +78,7 @@ export default function EditProfile() {
                         />
                       ) : (
                         <img
-                          src={user.avatar}
+                          src={imagePreview}
                           width={90}
                           height={90}
                           alt="icon upload"
@@ -87,7 +92,7 @@ export default function EditProfile() {
                       name="avatar"
                       accept="image/png, image/jpeg"
                       onChange={(event) => {
-                        const image = event.target.files[0];
+                        const image = event.target.files![0];
 
                         setImagePreview(URL.createObjectURL(image));
                         return setUser({

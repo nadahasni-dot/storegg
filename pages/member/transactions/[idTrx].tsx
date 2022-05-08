@@ -1,16 +1,15 @@
 import jwtDecode from 'jwt-decode';
 import Sidebar from '../../../components/organisms/Sidebar';
 import TransactionDetailContent from '../../../components/organisms/TransactionDetailContent';
-import { HistoryVoucherTopupTypes, JwtPayloadTypes, UserTypes } from '../../../services/data-types';
+import { HistoryTransactionTypes, JwtPayloadTypes, UserTypes } from '../../../services/data-types';
 import { getTransactionDetail } from '../../../services/member';
 
 interface TransactionDetailProps {
-  transactionDetail: HistoryVoucherTopupTypes;
+  transactionDetail: HistoryTransactionTypes;
 }
 
 export default function TransactionsDetail(props: TransactionDetailProps) {
   const { transactionDetail } = props;
-  console.log('detail: ', transactionDetail);
 
   return (
     <section className="transactions-detail overflow-auto">

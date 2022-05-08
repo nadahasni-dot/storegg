@@ -44,7 +44,7 @@ export async function getTransactionDetail(id: string, token: string) {
   });
 }
 
-export async function updateProfile(data) {
+export async function updateProfile(data: FormData) {
   const URL = 'players/profile';
 
   return callAPI({

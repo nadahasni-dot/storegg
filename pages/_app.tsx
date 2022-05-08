@@ -23,6 +23,27 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>Store GG - Get a New Experience in Gaming</title>
+        <meta
+          name="description"
+          content="Kami menyediakan jutaan cara untuk membantu players menjadi pemenang sejati"
+        />
+        <meta
+          property="og:title"
+          content="Store GG - Get a New Experience in Gaming"
+        />
+        <meta
+          property="og:description"
+          content="Kami menyediakan jutaan cara untuk membantu players menjadi pemenang sejati"
+        />
+        <meta
+          property="og:image"
+          content="/icon/logo.png"
+        />
+        <meta
+          property="og:url"
+          content="http://localhost:3000/"
+        />
         {/* Bootstrap CSS */}
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"

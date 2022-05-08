@@ -10,6 +10,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState({
     avatar: '',
+    username: '',
   });
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Auth() {
       setIsLogin(false);
       setUser({
         avatar: '',
+        username: '',
       });
     }
   }, [isLogin]);
@@ -36,6 +38,7 @@ export default function Auth() {
     setIsLogin(false);
     setUser({
       avatar: '',
+      username: '',
     });
     router.push('/');
   };

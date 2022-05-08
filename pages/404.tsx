@@ -24,7 +24,7 @@ export default function Custom404() {
         />
         <meta
           property="og:url"
-          content="http://localhost:3000/"
+          content="https://nada-storegg.vercel.app/"
         />
       </Head>
       <section className="not-found mx-auto pt-145 pb-md-212 pb-100">

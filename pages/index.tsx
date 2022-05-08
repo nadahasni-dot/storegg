@@ -36,7 +36,7 @@ export default function Home() {
         />
         <meta
           property="og:url"
-          content="http://localhost:3000/"
+          content="https://nada-storegg.vercel.app/"
         />
       </Head>
       <Navbar />

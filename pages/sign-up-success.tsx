@@ -24,7 +24,7 @@ export default function SignUpSuccess() {
         />
         <meta
           property="og:url"
-          content="http://localhost:3000/"
+          content="https://nada-storegg.vercel.app/"
         />
       </Head>
       <section className="sign-up-success mx-auto pt-md-179 pb-md-179 pt-150 pb-100">

@@ -24,7 +24,7 @@ export default function CompleteCheckout() {
         />
         <meta
           property="og:url"
-          content="http://localhost:3000/"
+          content="https://nada-storegg.vercel.app/"
         />
       </Head>
       <section className="complete-checkout mx-auto pt-lg-145 pb-lg-145 pt-100 pb-80">

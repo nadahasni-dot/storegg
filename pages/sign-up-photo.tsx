@@ -83,7 +83,7 @@ export default function SignUpPhoto() {
         />
         <meta
           property="og:url"
-          content="http://localhost:3000/"
+          content="https://nada-storegg.vercel.app/"
         />
       </Head>
       <section className="sign-up-photo mx-auto pt-lg-227 pb-lg-227 pt-130 pb-50">
